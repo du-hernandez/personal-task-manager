@@ -67,7 +67,7 @@
   box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .app-main {
     padding: 0 0.5rem;
   }
@@ -82,7 +82,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .app-container {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }

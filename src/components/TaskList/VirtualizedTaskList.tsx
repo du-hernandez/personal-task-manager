@@ -37,8 +37,14 @@ export const VirtualizedTaskList: React.FC = () => {
   }
 
   const onScroll = (e: React.UIEvent<HTMLElement, UIEvent>) => {
-    // Aquí se puede implementar infinite scroll si es necesario
-    // Por ahora solo log para debugging
+    // Optimizar scroll para evitar flickering
+    e.currentTarget.style.willChange = 'scroll-position';
+    
+    // Reset después del scroll
+    setTimeout(() => {
+      e.currentTarget.style.willChange = 'auto';
+    }, 100);
+    
     if (import.meta.env.DEV) {
       console.log('Scroll position:', e.currentTarget.scrollTop);
     }

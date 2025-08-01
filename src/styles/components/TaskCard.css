@@ -6,6 +6,9 @@
   animation: slideInUp 0.5s ease-out;
   position: relative;
   overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .task-card::before {
@@ -138,7 +141,7 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .task-card {
     margin-bottom: 0.75rem;
     border-radius: 12px !important;
@@ -161,7 +164,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .task-card {
     margin-bottom: 0.5rem;
     border-radius: 10px !important;
