@@ -1,6 +1,10 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useTaskContext } from '../../hooks/useTaskContext';
-import { APP_CONFIG } from '../../utils/constants';
+import { Header } from '../common/Header';
+import { TaskInput } from '../common/TaskInput';
+import { FilterButtons } from '../common/FilterButtons';
+import { TaskSummary } from '../common/TaskSummary';
+import '../../styles/components/AppLayout.css';
 
 export const AppLayout: React.FC = () => {
   const { loadTasks, loading, error } = useTaskContext();
@@ -32,12 +36,17 @@ export const AppLayout: React.FC = () => {
 
   return (
     <div className="app-container">
-      <header className="app-header">
-        <h1>{APP_CONFIG.TITLE}</h1>
-      </header>
+      <Header />
       <main className="app-main">
-        {/* Aquí irán los componentes de la aplicación */}
-        <p>Contenido de la aplicación</p>
+        <div className="app-content">
+          <TaskInput />
+          <FilterButtons />
+          {/* Aquí irá la lista de tareas */}
+          <div className="task-list-placeholder">
+            <p>Lista de tareas aquí</p>
+          </div>
+          <TaskSummary />
+        </div>
       </main>
     </div>
   );

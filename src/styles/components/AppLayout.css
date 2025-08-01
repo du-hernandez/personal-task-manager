@@ -1,0 +1,39 @@
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.app-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.app-content {
+  padding: 2rem 0;
+}
+
+.task-list-placeholder {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.task-list-placeholder p {
+  color: #8c8c8c;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    padding: 0 0.5rem;
+  }
+  
+  .app-content {
+    padding: 1rem 0;
+  }
+} 

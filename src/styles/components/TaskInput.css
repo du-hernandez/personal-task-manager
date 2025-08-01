@@ -1,0 +1,93 @@
+.task-input-container {
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.task-input-form {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-input-field {
+  flex: 1;
+  margin-bottom: 0 !important;
+}
+
+.task-input {
+  border-radius: 8px;
+  border: 2px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.task-input:focus,
+.task-input:hover {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.task-description-field {
+  flex: 1;
+  margin-bottom: 0 !important;
+}
+
+.task-description {
+  border-radius: 8px;
+  border: 2px solid #f0f0f0;
+  transition: all 0.3s ease;
+  resize: none;
+}
+
+.task-description:focus,
+.task-description:hover {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.task-submit-field {
+  margin-bottom: 0 !important;
+}
+
+.task-submit-button {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #52c41a !important;
+  border-color: #52c41a !important;
+  box-shadow: 0 2px 8px rgba(82, 196, 26, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.task-submit-button:hover {
+  background: #389e0d !important;
+  border-color: #389e0d !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(82, 196, 26, 0.4) !important;
+}
+
+.task-submit-button:active {
+  transform: translateY(0) !important;
+}
+
+@media (max-width: 768px) {
+  .task-input-form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .task-input-field,
+  .task-description-field {
+    width: 100%;
+  }
+  
+  .task-submit-field {
+    align-self: flex-end;
+  }
+} 
