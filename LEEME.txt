@@ -78,6 +78,13 @@ PATRÓN DE ARQUITECTURA
 FLUJO DE DATOS:
 User Input → Component → Context → Service → API
 
+HERRAMIENTAS DE DESARROLLO VERIFICADAS
+-------------------------------------
+• Node.js: v22.14.0
+• npm: 10.9.2
+• Vite: 7.0.6
+• TypeScript: 5.8.3
+
 PASOS RÁPIDOS PARA EJECUTAR
 ---------------------------
 
@@ -133,13 +140,27 @@ VARIABLES OPCIONALES
 --------------------
 VITE_APP_TITLE       # Título de la aplicación
 
+CONFIGURACIÓN DE DESARROLLO LOCAL:
+VITE_APP_TITLE=Personal Task Manager (Dev)
+VITE_BASE_URL=http://localhost:3000/api
+VITE_API_KEY=dev-api-key-123
+
+CONFIGURACIÓN DE PRODUCCIÓN:
+VITE_APP_TITLE=Personal Task Manager
+VITE_BASE_URL=https://api.yourdomain.com
+VITE_API_KEY=your-production-api-key
+
 NOTAS IMPORTANTES
 -----------------
-• Node.js 18+ requerido
+• Node.js 18+ requerido (verificado con 22.14.0)
 • Puerto por defecto: 5173
 • Build de producción en carpeta dist/
 • Tests configurados con jsdom
 • ESLint con reglas estrictas habilitadas
+• Hot Module Replacement (HMR) habilitado
+• TypeScript con configuración estricta
+• Virtualización para listas grandes
+• Error Boundaries para manejo de errores
 
 CONTACTO Y SOPORTE
 ------------------

@@ -2,6 +2,13 @@
 
 Una aplicación moderna de gestión de tareas construida con React, TypeScript y Vite. Esta aplicación permite a los usuarios crear, gestionar y organizar sus tareas de manera eficiente con una interfaz de usuario intuitiva y responsive.
 
+## 📋 Información del Proyecto
+
+- **Repositorio**: [https://github.com/du-hernandez/personal-task-manager](https://github.com/du-hernandez/personal-task-manager)
+- **Versión**: 1.0.0
+- **Última Actualización**: Diciembre 2024
+- **Estado**: En desarrollo activo
+
 ## 🚀 Características
 
 - **Gestión de Tareas**: Crear, editar y eliminar tareas
@@ -95,8 +102,10 @@ personal-task-manager/
 
 ### Prerrequisitos
 
-- **Node.js**: Versión 18 o superior
-- **npm**: Gestor de paquetes de Node.js
+- **Node.js**: Versión 18 o superior (recomendado: 22.14.0+)
+- **npm**: Gestor de paquetes de Node.js (recomendado: 10.9.2+)
+- **Sistema Operativo**: Linux, macOS o Windows
+- **Navegador**: Chrome, Firefox, Safari o Edge (versión moderna)
 
 ### Pasos de Instalación
 
@@ -126,6 +135,15 @@ personal-task-manager/
    ```
 
    La aplicación estará disponible en `http://localhost:5173`
+
+### Herramientas de Desarrollo Verificadas
+
+El proyecto ha sido desarrollado y probado con las siguientes herramientas:
+
+- **Node.js**: v22.14.0
+- **npm**: 10.9.2
+- **Vite**: 7.0.6
+- **TypeScript**: 5.8.3
 
 ## 📜 Scripts Disponibles
 
@@ -232,11 +250,27 @@ npm run test:run
 
 ## 🌐 Variables de Entorno
 
-| Variable | Descripción | Requerida |
-|----------|-------------|-----------|
-| `VITE_APP_TITLE` | Título de la aplicación | No |
-| `VITE_BASE_URL` | URL base de la API | Sí |
-| `VITE_API_KEY` | Clave de API | Sí |
+| Variable | Descripción | Requerida | Ejemplo |
+|----------|-------------|-----------|---------|
+| `VITE_APP_TITLE` | Título de la aplicación | No | `Personal Task Manager` |
+| `VITE_BASE_URL` | URL base de la API | Sí | `https://api.example.com` |
+| `VITE_API_KEY` | Clave de API | Sí | `your-api-key-here` |
+
+### Configuración de Desarrollo Local
+
+Para desarrollo local, puedes usar estas configuraciones:
+
+```env
+# Desarrollo local
+VITE_APP_TITLE=Personal Task Manager (Dev)
+VITE_BASE_URL=http://localhost:3000/api
+VITE_API_KEY=dev-api-key-123
+
+# Producción
+VITE_APP_TITLE=Personal Task Manager
+VITE_BASE_URL=https://api.yourdomain.com
+VITE_API_KEY=your-production-api-key
+```
 
 ## 🚀 Despliegue
 
@@ -252,6 +286,71 @@ Los archivos de producción se generarán en la carpeta `dist/`.
 
 ```bash
 npm run preview
+```
+
+## 🔧 Troubleshooting
+
+### Problemas Comunes
+
+**Error: "Node.js version not supported"**
+```bash
+# Verificar versión de Node.js
+node --version
+
+# Si es menor a 18, actualizar Node.js
+# Usar nvm para gestionar versiones
+nvm install 22.14.0
+nvm use 22.14.0
+```
+
+**Error: "npm install failed"**
+```bash
+# Limpiar cache de npm
+npm cache clean --force
+
+# Eliminar node_modules y reinstalar
+rm -rf node_modules package-lock.json
+npm install
+```
+
+**Error: "Port 5173 already in use"**
+```bash
+# Cambiar puerto en vite.config.ts
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    port: 3000
+  }
+})
+```
+
+**Error: "Environment variables not found"**
+```bash
+# Verificar archivo .env en la raíz del proyecto
+# Asegurar que las variables estén definidas
+VITE_BASE_URL=https://api.example.com
+VITE_API_KEY=your-api-key
+```
+
+**Error: "TypeScript compilation failed"**
+```bash
+# Verificar configuración de TypeScript
+npm run build
+
+# Si hay errores, revisar tsconfig.json
+# Asegurar que target sea ES2022 o superior
+```
+
+### Logs de Desarrollo
+
+Para debugging avanzado, puedes habilitar logs detallados:
+
+```bash
+# Habilitar logs de Vite
+DEBUG=vite:* npm run dev
+
+# Habilitar logs de Axios
+DEBUG=axios:* npm run dev
 ```
 
 ## 🤝 Contribución
