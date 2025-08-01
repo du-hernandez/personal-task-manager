@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Card, Checkbox, Typography, Space } from 'antd';
 import { CheckCircleOutlined, CheckCircleFilled } from '@ant-design/icons';
 import { useTaskContext } from '../../hooks/useTaskContext';
@@ -11,7 +11,7 @@ interface TaskCardProps {
   task: Task;
 }
 
-export const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
+export const TaskCard: React.FC<TaskCardProps> = memo(({ task }) => {
   const { toggleTask } = useTaskContext();
 
   const handleToggle = async () => {
@@ -62,4 +62,4 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
       </div>
     </Card>
   );
-}; 
+}); 

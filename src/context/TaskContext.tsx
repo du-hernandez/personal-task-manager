@@ -147,7 +147,8 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
     dispatch({ type: 'SET_FILTER', payload: filter });
   }, []);
 
-  const contextValue: TaskContextType = {
+  // Memoizar el contexto para evitar re-renders innecesarios
+  const contextValue = useMemo((): TaskContextType => ({
     tasks: state.tasks,
     completedTasks,
     pendingTasks,
@@ -160,7 +161,20 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
     filterTasks: filterTasksHandler,
     loadTasks,
     getTaskSummary,
-  };
+  }), [
+    state.tasks,
+    completedTasks,
+    pendingTasks,
+    filteredTasks,
+    state.loading,
+    state.error,
+    state.currentFilter,
+    addTask,
+    toggleTask,
+    filterTasksHandler,
+    loadTasks,
+    getTaskSummary,
+  ]);
 
   return (
     <TaskContext.Provider value={contextValue}>

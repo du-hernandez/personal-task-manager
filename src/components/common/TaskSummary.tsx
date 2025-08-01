@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Typography, Space } from 'antd';
 import { useTaskContext } from '../../hooks/useTaskContext';
 import '../../styles/components/TaskSummary.css';
 
 const { Text } = Typography;
 
-export const TaskSummary: React.FC = () => {
+export const TaskSummary: React.FC = memo(() => {
   const { getTaskSummary } = useTaskContext();
   const summary = getTaskSummary();
 
@@ -41,4 +41,4 @@ export const TaskSummary: React.FC = () => {
       </div>
     </div>
   );
-}; 
+}); 

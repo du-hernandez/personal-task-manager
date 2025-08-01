@@ -5,6 +5,7 @@ import { TaskInput } from '../common/TaskInput';
 import { FilterButtons } from '../common/FilterButtons';
 import { VirtualizedTaskList } from '../TaskList/VirtualizedTaskList';
 import { TaskSummary } from '../common/TaskSummary';
+import { ErrorBoundary } from '../common/ErrorBoundary';
 import '../../styles/components/AppLayout.css';
 
 export const AppLayout: React.FC = () => {
@@ -40,10 +41,18 @@ export const AppLayout: React.FC = () => {
       <Header />
       <main className="app-main">
         <div className="app-content">
-          <TaskInput />
-          <FilterButtons />
-          <VirtualizedTaskList />
-          <TaskSummary />
+          <ErrorBoundary>
+            <TaskInput />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <FilterButtons />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <VirtualizedTaskList />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <TaskSummary />
+          </ErrorBoundary>
         </div>
       </main>
     </div>

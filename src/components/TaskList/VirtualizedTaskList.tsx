@@ -1,8 +1,9 @@
 import React from 'react';
-import { List, Empty, Spin } from 'antd';
+import { List, Empty } from 'antd';
 import VirtualList from 'rc-virtual-list';
 import { useTaskContext } from '../../hooks/useTaskContext';
 import { TaskCard } from '../common/TaskCard';
+import { LoadingSpinner } from '../common/LoadingSpinner';
 import { UI_CONSTANTS } from '../../utils/constants';
 import '../../styles/components/VirtualizedTaskList.css';
 
@@ -13,12 +14,7 @@ export const VirtualizedTaskList: React.FC = () => {
   const { filteredTasks, loading, error } = useTaskContext();
 
   if (loading) {
-    return (
-      <div className="task-list-loading">
-        <Spin size="large" />
-        <p>Cargando tareas...</p>
-      </div>
-    );
+    return <LoadingSpinner message="Cargando tareas..." />;
   }
 
   if (error) {

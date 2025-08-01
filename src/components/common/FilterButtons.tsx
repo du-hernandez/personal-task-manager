@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Button, Space } from 'antd';
 import { useTaskContext } from '../../hooks/useTaskContext';
 import '../../styles/components/FilterButtons.css';
 
-export const FilterButtons: React.FC = () => {
+export const FilterButtons: React.FC = memo(() => {
   const { currentFilter, filterTasks } = useTaskContext();
 
   const handleFilterChange = (filter: 'all' | 'completed') => {
@@ -32,4 +32,4 @@ export const FilterButtons: React.FC = () => {
       </Space>
     </div>
   );
-}; 
+}); 
