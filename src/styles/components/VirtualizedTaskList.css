@@ -1,0 +1,54 @@
+.virtualized-task-list-container {
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+
+.virtualized-task-list {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.virtualized-task-list-item {
+  padding: 0 !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.virtualized-task-list-item:last-child {
+  border-bottom: none !important;
+}
+
+/* Estilos específicos para rc-virtual-list */
+.rc-virtual-list-holder {
+  border-radius: 12px;
+}
+
+.rc-virtual-list-holder-inner {
+  padding: 0;
+}
+
+/* Scrollbar personalizado */
+.rc-virtual-list-holder::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rc-virtual-list-holder::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.rc-virtual-list-holder::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.rc-virtual-list-holder::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+@media (max-width: 768px) {
+  .virtualized-task-list-container {
+    padding: 0 0.5rem;
+  }
+} 

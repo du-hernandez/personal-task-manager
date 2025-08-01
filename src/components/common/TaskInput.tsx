@@ -71,7 +71,7 @@ export const TaskInput: React.FC = () => {
         >
           <TextArea
             placeholder="Descripción (opcional)"
-            rows={1}
+            rows={2}
             className="task-description"
           />
         </Form.Item>

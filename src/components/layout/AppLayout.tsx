@@ -3,6 +3,7 @@ import { useTaskContext } from '../../hooks/useTaskContext';
 import { Header } from '../common/Header';
 import { TaskInput } from '../common/TaskInput';
 import { FilterButtons } from '../common/FilterButtons';
+import { VirtualizedTaskList } from '../TaskList/VirtualizedTaskList';
 import { TaskSummary } from '../common/TaskSummary';
 import '../../styles/components/AppLayout.css';
 
@@ -41,10 +42,7 @@ export const AppLayout: React.FC = () => {
         <div className="app-content">
           <TaskInput />
           <FilterButtons />
-          {/* Aquí irá la lista de tareas */}
-          <div className="task-list-placeholder">
-            <p>Lista de tareas aquí</p>
-          </div>
+          <VirtualizedTaskList />
           <TaskSummary />
         </div>
       </main>
