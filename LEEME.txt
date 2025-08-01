@@ -1,0 +1,142 @@
+PERSONAL TASK MANAGER
+====================
+
+DESCRIPCIÓN
+-----------
+Aplicación de gestión de tareas construida con React, TypeScript y Vite.
+Permite crear, gestionar y filtrar tareas con interfaz virtualizada.
+
+ARQUITECTURA DEL PROYECTO
+-------------------------
+
+┌─────────────────────────────────────────────────────────────┐
+│                    PERSONAL TASK MANAGER                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐   │
+│  │   COMPONENTS│    │   CONTEXT   │    │   SERVICES  │   │
+│  │             │    │             │    │             │   │
+│  │ • TaskCard  │◄──►│ TaskContext│◄──►│ TaskService│   │
+│  │ • TaskInput │    │             │    │             │   │
+│  │ • TaskList  │    │             │    │             │   │
+│  │ • Header    │    │             │    │             │   │
+│  │ • Filters   │    │             │    │             │   │
+│  └─────────────┘    └─────────────┘    └─────────────┘   │
+│                                                             │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐   │
+│  │    HOOKS    │    │    UTILS    │    │    TYPES    │   │
+│  │             │    │             │    │             │   │
+│  │ • useTask   │    │ • helpers   │    │ • Task      │   │
+│  │   Context   │    │ • constants │    │ • TaskSummary│   │
+│  └─────────────┘    └─────────────┘    └─────────────┘   │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+
+ESTRUCTURA DE CARPETAS
+---------------------
+src/
+├── components/          # Componentes React
+│   ├── common/         # Componentes reutilizables
+│   ├── layout/         # Layout principal
+│   └── TaskList/       # Lista virtualizada
+├── context/            # Contexto global (TaskContext)
+├── hooks/              # Hooks personalizados
+├── services/           # Servicios API
+│   ├── api/           # Cliente HTTP y servicios
+│   └── types/         # Tipos TypeScript
+├── styles/            # Estilos CSS por componente
+└── utils/             # Utilidades y helpers
+
+TECNOLOGÍAS UTILIZADAS
+----------------------
+
+FRONTEND:
+• React 19.1.0          - Biblioteca de UI
+• TypeScript 5.8.3      - Tipado estático
+• Vite 7.0.4           - Build tool y dev server
+• Ant Design 5.26.7    - Componentes UI
+• Axios 1.11.0         - Cliente HTTP
+• rc-virtual-list      - Virtualización
+
+DESARROLLO:
+• ESLint 9.30.1        - Linter
+• Vitest 3.2.4         - Testing framework
+• Testing Library      - Testing de componentes
+• jsdom               - Entorno DOM para tests
+
+PATRÓN DE ARQUITECTURA
+----------------------
+1. COMPONENTS LAYER    - Interfaz de usuario
+2. CONTEXT LAYER       - Estado global
+3. SERVICES LAYER      - Comunicación con API
+4. UTILS LAYER         - Funciones auxiliares
+
+FLUJO DE DATOS:
+User Input → Component → Context → Service → API
+
+PASOS RÁPIDOS PARA EJECUTAR
+---------------------------
+
+1. INSTALAR DEPENDENCIAS:
+   npm install
+
+2. CONFIGURAR VARIABLES DE ENTORNO:
+   Crear archivo .env en la raíz:
+   VITE_APP_TITLE=Personal Task Manager
+   VITE_BASE_URL=https://api.example.com
+   VITE_API_KEY=your-api-key
+
+3. EJECUTAR EN DESARROLLO:
+   npm run dev
+
+4. ABRIR EN NAVEGADOR:
+   http://localhost:5173
+
+COMANDOS ÚTILES
+---------------
+npm run dev          # Servidor de desarrollo
+npm run build        # Build de producción
+npm run preview      # Previsualizar build
+npm run test         # Ejecutar tests
+npm run lint         # Verificar código
+
+COMPONENTES PRINCIPALES
+-----------------------
+• AppLayout          - Layout principal
+• TaskContext        - Estado global de tareas
+• VirtualizedTaskList- Lista optimizada
+• TaskCard          - Tarjeta de tarea individual
+• TaskInput         - Formulario de nueva tarea
+• FilterButtons     - Controles de filtrado
+• TaskSummary       - Resumen estadístico
+
+CARACTERÍSTICAS TÉCNICAS
+------------------------
+• Virtualización para listas grandes
+• Estado global con React Context
+• Manejo de errores con Error Boundaries
+• Testing con Vitest y Testing Library
+• Tipado fuerte con TypeScript
+• Linting con ESLint
+• Hot Module Replacement (HMR)
+
+VARIABLES DE ENTORNO REQUERIDAS
+-------------------------------
+VITE_BASE_URL        # URL base de la API
+VITE_API_KEY         # Clave de autenticación
+
+VARIABLES OPCIONALES
+--------------------
+VITE_APP_TITLE       # Título de la aplicación
+
+NOTAS IMPORTANTES
+-----------------
+• Node.js 18+ requerido
+• Puerto por defecto: 5173
+• Build de producción en carpeta dist/
+• Tests configurados con jsdom
+• ESLint con reglas estrictas habilitadas
+
+CONTACTO Y SOPORTE
+------------------
+Para dudas o problemas, revisar el README.md completo
