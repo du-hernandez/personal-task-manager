@@ -6,6 +6,10 @@ DESCRIPCIÓN
 Aplicación de gestión de tareas construida con React, TypeScript y Vite.
 Permite crear, gestionar y filtrar tareas con interfaz virtualizada.
 
+REPOSITORIO DEL PROYECTO
+------------------------
+https://github.com/du-hernandez/personal-task-manager
+
 ARQUITECTURA DEL PROYECTO
 -------------------------
 
