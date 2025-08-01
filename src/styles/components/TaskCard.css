@@ -1,34 +1,57 @@
 .task-card {
   margin-bottom: 1rem;
-  border-radius: 12px !important;
-  transition: all 0.3s ease !important;
+  border-radius: 16px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   border: 2px solid transparent !important;
+  animation: slideInUp 0.5s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.task-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s;
+}
+
+.task-card:hover::before {
+  left: 100%;
 }
 
 .task-card.pending {
-  background: white !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .task-card.completed {
-  background: #f6ffed !important;
-  border-color: #b7eb8f !important;
-  box-shadow: 0 2px 8px rgba(82, 196, 26, 0.2) !important;
+  background: rgba(246, 255, 237, 0.95) !important;
+  border-color: rgba(183, 235, 143, 0.8) !important;
+  box-shadow: 0 4px 16px rgba(82, 196, 26, 0.2) !important;
+  backdrop-filter: blur(10px);
 }
 
 .task-card:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-0.1px) scale(1.02) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
 }
 
 .task-card.completed:hover {
-  box-shadow: 0 4px 16px rgba(82, 196, 26, 0.3) !important;
+  box-shadow: 0 8px 24px rgba(82, 196, 26, 0.3) !important;
 }
 
 .task-card-content {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .task-checkbox-container {
@@ -41,8 +64,8 @@
 }
 
 .task-check-icon {
-  font-size: 1.5rem !important;
-  transition: all 0.3s ease !important;
+  font-size: 1.75rem !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .task-check-icon.pending {
@@ -51,6 +74,7 @@
 
 .task-check-icon.completed {
   color: #52c41a !important;
+  animation: checkmarkPulse 0.6s ease-out;
 }
 
 .task-content {
@@ -61,8 +85,10 @@
 .task-title {
   display: block !important;
   margin-bottom: 0.5rem !important;
-  font-size: 1.1rem !important;
+  font-size: 1.15rem !important;
   line-height: 1.4 !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
 }
 
 .task-title.pending {
@@ -71,27 +97,59 @@
 
 .task-title.completed {
   color: #52c41a !important;
+  text-decoration: line-through;
+  opacity: 0.8;
 }
 
 .task-description {
   margin: 0 !important;
   color: #8c8c8c !important;
   font-size: 0.9rem !important;
-  line-height: 1.5 !important;
+  line-height: 1.6 !important;
+  transition: all 0.3s ease !important;
 }
 
 .task-description.completed {
   color: #73d13d !important;
+  opacity: 0.8;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes checkmarkPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+  .task-card {
+    margin-bottom: 0.75rem;
+    border-radius: 12px !important;
+  }
+  
   .task-card-content {
     gap: 0.75rem;
   }
   
   .task-check-icon {
-    font-size: 1.25rem !important;
+    font-size: 1.5rem !important;
   }
   
   .task-title {
@@ -100,5 +158,24 @@
   
   .task-description {
     font-size: 0.85rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .task-card {
+    margin-bottom: 0.5rem;
+    border-radius: 10px !important;
+  }
+  
+  .task-check-icon {
+    font-size: 1.25rem !important;
+  }
+  
+  .task-title {
+    font-size: 0.95rem !important;
+  }
+  
+  .task-description {
+    font-size: 0.8rem !important;
   }
 } 

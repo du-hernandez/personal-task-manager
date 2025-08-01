@@ -1,54 +1,115 @@
 .virtualized-task-list-container {
   margin: 2rem 0;
   padding: 0 1rem;
+  animation: slideInUp 0.6s ease-out 0.8s both;
 }
 
 .virtualized-task-list {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.virtualized-task-list:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 .virtualized-task-list-item {
   padding: 0 !important;
-  border-bottom: 1px solid #f0f0f0 !important;
+  border-bottom: 1px solid rgba(240, 240, 240, 0.5) !important;
+  transition: all 0.3s ease;
 }
 
 .virtualized-task-list-item:last-child {
   border-bottom: none !important;
 }
 
+.virtualized-task-list-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
 /* Estilos específicos para rc-virtual-list */
 .rc-virtual-list-holder {
-  border-radius: 12px;
+  border-radius: 20px;
+  background: transparent;
 }
 
 .rc-virtual-list-holder-inner {
-  padding: 0;
+  padding: 1rem 0;
 }
 
-/* Scrollbar personalizado */
+/* Scrollbar personalizado moderno */
 .rc-virtual-list-holder::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .rc-virtual-list-holder::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 3px;
+  background: rgba(241, 241, 241, 0.5);
+  border-radius: 4px;
+  margin: 4px;
 }
 
 .rc-virtual-list-holder::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
 .rc-virtual-list-holder::-webkit-scrollbar-thumb:hover {
-  background: #a8a8a8;
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  transform: scale(1.1);
+}
+
+/* Firefox scrollbar */
+.rc-virtual-list-holder {
+  scrollbar-width: thin;
+  scrollbar-color: #667eea #f1f1f1;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
   .virtualized-task-list-container {
     padding: 0 0.5rem;
+  }
+  
+  .virtualized-task-list {
+    border-radius: 16px;
+  }
+  
+  .rc-virtual-list-holder {
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .virtualized-task-list-container {
+    padding: 0 0.25rem;
+  }
+  
+  .virtualized-task-list {
+    border-radius: 12px;
+  }
+  
+  .rc-virtual-list-holder {
+    border-radius: 12px;
+  }
+  
+  .rc-virtual-list-holder::-webkit-scrollbar {
+    width: 6px;
   }
 } 
