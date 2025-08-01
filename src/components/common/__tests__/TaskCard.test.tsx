@@ -4,6 +4,15 @@ import { vi, describe, it, expect } from 'vitest';
 import { TaskCard } from '../TaskCard';
 import type { Task } from '../../../services/types/task.types';
 
+// Mock del hook useTaskContext
+const mockToggleTask = vi.fn();
+
+vi.mock('../../../hooks/useTaskContext', () => ({
+  useTaskContext: () => ({
+    toggleTask: mockToggleTask,
+  }),
+}));
+
 describe('TaskCard', () => {
   const mockTask: Task = {
     id: '1',
