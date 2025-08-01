@@ -9,6 +9,7 @@
   will-change: transform;
   backface-visibility: hidden;
   transform: translateZ(0);
+  width: 100%;
 }
 
 /* Cuando TaskCard está fuera de lista (como en TaskSummary) */
@@ -55,6 +56,7 @@
 
 .task-card-content {
   display: flex;
+  justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
   position: relative;
@@ -97,6 +99,14 @@
 .task-description.completed {
   color: #73d13d !important;
   opacity: 0.8;
+}
+
+.task-description.completed:hover {
+  border-color: transparent !important;
+}
+
+.task-description:hover {
+  border-color: transparent !important;
 }
 
 @keyframes slideInUp {

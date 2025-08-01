@@ -25,20 +25,15 @@ export const TaskCard: React.FC<TaskCardProps> = memo(({ task }) => {
       className={cardClassName}
       bodyStyle={{ padding: '1rem' }}
       hoverable
+      onClick={handleToggle}
     >
       <div className="task-card-content">
         <div className="task-checkbox-container">
-          <Checkbox
-            checked={task.completed}
-            onChange={handleToggle}
-            className="task-checkbox"
-          >
-            {task.completed ? (
+        {task.completed ? (
               <CheckCircleFilled className="task-check-icon completed" />
             ) : (
               <CheckCircleOutlined className="task-check-icon pending" />
             )}
-          </Checkbox>
         </div>
         
         <div className="task-content">

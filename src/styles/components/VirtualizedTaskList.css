@@ -1,5 +1,5 @@
 .virtualized-task-list-container {
-  margin: 2rem 0;
+  margin: 1rem 0;
   padding: 0 1rem;
   animation: slideInUp 0.6s ease-out 0.8s both;
 }
