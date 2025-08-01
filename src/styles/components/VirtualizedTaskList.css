@@ -19,14 +19,19 @@
 }
 
 .virtualized-task-list-item {
-  padding: 0 !important;
+  padding: 0.1rem 1rem !important;
+  margin-bottom: 0.5rem !important;
+  border-bottom: 1px solid rgba(240, 240, 240, 0.3) !important;
+  transition: all 0.3s ease;
+  background: transparent !important;
+  will-change: transform;
+  border-radius: 8px;
 }
 
-.virtualized-task-list-item {
-  background: transparent !important;
-  border: none !important;
-  outline: none !important;
-}
+/* .virtualized-task-list-item:last-child {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+} */
 
 @keyframes slideInUp {
   from {

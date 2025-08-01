@@ -7,7 +7,7 @@ import { LoadingSpinner } from '../common/LoadingSpinner';
 import { UI_CONSTANTS } from '../../utils/constants';
 import '../../styles/components/VirtualizedTaskList.css';
 
-const CONTAINER_HEIGHT = 400;
+const CONTAINER_HEIGHT = 500;
 const ITEM_HEIGHT = UI_CONSTANTS.VIRTUALIZATION_ITEM_HEIGHT;
 
 export const VirtualizedTaskList: React.FC = () => {

@@ -53,7 +53,6 @@ export const TaskCard: React.FC<TaskCardProps> = memo(({ task }) => {
           {task.description && (
             <Paragraph
               className={`task-description ${task.completed ? 'completed' : 'pending'}`}
-              ellipsis={{ rows: 2, expandable: true }}
             >
               {task.description}
             </Paragraph>

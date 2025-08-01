@@ -1,6 +1,6 @@
 .task-card {
-  margin-bottom: 1rem;
-  border-radius: 16px !important;
+  margin-bottom: 0; /* Reset margin cuando está en lista */
+  border-radius: 12px !important; /* Reducir border-radius en lista */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   border: 2px solid transparent !important;
   animation: slideInUp 0.5s ease-out;
@@ -11,19 +11,10 @@
   transform: translateZ(0);
 }
 
-.task-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.6s;
-}
-
-.task-card:hover::before {
-  left: 100%;
+/* Cuando TaskCard está fuera de lista (como en TaskSummary) */
+.task-summary-container .task-card {
+  margin-bottom: 1rem;
+  border-radius: 16px !important;
 }
 
 .task-card.pending {
@@ -34,9 +25,7 @@
 }
 
 .task-card.completed {
-  background: rgba(246, 255, 237, 0.95) !important;
   border-color: rgba(183, 235, 143, 0.8) !important;
-  box-shadow: 0 4px 16px rgba(82, 196, 26, 0.2) !important;
   backdrop-filter: blur(10px);
 }
 
@@ -45,25 +34,9 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
 }
 
-.task-card.completed:hover {
-  box-shadow: 0 8px 24px rgba(82, 196, 26, 0.3) !important;
-}
-
-.task-card-content {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  position: relative;
-  z-index: 1;
-}
-
 .task-checkbox-container {
   flex-shrink: 0;
   margin-top: 0.25rem;
-}
-
-.task-checkbox {
-  margin: 0 !important;
 }
 
 .task-check-icon {
@@ -80,9 +53,18 @@
   animation: checkmarkPulse 0.6s ease-out;
 }
 
+.task-card-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
 .task-content {
-  flex: 1;
-  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .task-title {
@@ -161,24 +143,5 @@
   
   .task-description {
     font-size: 0.85rem !important;
-  }
-}
-
-@media (width <= 480px) {
-  .task-card {
-    margin-bottom: 0.5rem;
-    border-radius: 10px !important;
-  }
-  
-  .task-check-icon {
-    font-size: 1.25rem !important;
-  }
-  
-  .task-title {
-    font-size: 0.95rem !important;
-  }
-  
-  .task-description {
-    font-size: 0.8rem !important;
   }
 } 
