@@ -37,12 +37,17 @@ export const VirtualizedTaskList: React.FC = () => {
   }
 
   const onScroll = (e: React.UIEvent<HTMLElement, UIEvent>) => {
+    // Verificar que currentTarget existe antes de acceder a sus propiedades
+    if (!e.currentTarget) return;
+    
     // Optimizar scroll para evitar flickering
     e.currentTarget.style.willChange = 'scroll-position';
     
     // Reset después del scroll
     setTimeout(() => {
-      e.currentTarget.style.willChange = 'auto';
+      if (e.currentTarget) {
+        e.currentTarget.style.willChange = 'auto';
+      }
     }, 100);
     
     if (import.meta.env.DEV) {

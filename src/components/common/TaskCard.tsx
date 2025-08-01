@@ -23,7 +23,7 @@ export const TaskCard: React.FC<TaskCardProps> = memo(({ task }) => {
   return (
     <Card
       className={cardClassName}
-      bodyStyle={{ padding: '1rem' }}
+      styles={{ body: { padding: '1rem' } }}
       hoverable
       onClick={handleToggle}
     >
